@@ -1,0 +1,36 @@
+\documentclass{resume}
+\input{personal}
+\begin{document}
+\titlesection
+\profileSummary
+
+\section{Education}
+\begin{itemize}[leftmargin=0.0in, label={}]
+	\renderEducation{PhD} \vspace{-10pt}
+	\renderEducationNoHighlights{Master} \vspace{-10pt}
+	\renderEducation{Bachelor}
+\end{itemize}
+
+\section{Experience}
+\begin{itemize}[leftmargin=0.0in, label={}]
+	\renderExperience{Exp1}
+	\renderExperience{Exp2}
+	% More Experiences
+\end{itemize}
+
+\section{Leadership \& Activities}
+\begin{itemize}[leftmargin=0.0in, label={}]
+	\renderExperience{Lead1}
+	% More Experiences
+\end{itemize}
+
+% Not in Harvard Template
+\section{Notable Github Projects}
+\vspace{-5pt}
+\begin{itemize}[leftmargin=0.0in, label={}]
+	\renderProject{Github1}
+	\renderProject{Github1}
+\end{itemize}
+
+\end{document}
+

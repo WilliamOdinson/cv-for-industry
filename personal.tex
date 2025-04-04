@@ -1,0 +1,88 @@
+\usepackage{blindtext}
+\usepackage{lipsum}
+
+\def\lrand{\lipsum[-]}
+\def\firstname{Firstname}
+\def\lastname{Lastname}
+\def\email{youremail@college.harvard.edu}
+\def\linkedin{linkedin/in/username}
+\def\github{github.com/username}
+\def\jasphone{+1 (xxx) xxx-xxxx}
+
+
+\def\profileSummary{
+	\section{Career summary}
+    \blindtext
+}
+
+%-------------------------------------
+% Education
+%-------------------------------------
+\Education{PhD}
+{Year}{Year}{Harvard University}{Cambridge, MA}
+{PhD Degree}
+{Concentration}{}{}
+
+\Education{Master}
+{Year}{Year}{Harvard University}{Cambridge, MA}
+{Master's Degree}
+{Concentration}{}{}
+
+\Education{Bachelor}
+{Year}{Year}{Harvard University}{Cambridge, MA}
+{Bachelor Degree}
+{Concentration}{GPA:4.0/4.0}{Relevant Coursework: [Note: Optional. Awards and honors can also be listed here.]}
+
+\Experience{Exp1}
+{Month Year}
+{Month Year}
+{Organization}
+{Position Title}
+{City, State (or Remote)}
+{
+	\begin{itemize}
+		\resumeItem{Beginning with your most recent position, describe your experience, skills, and resulting outcomes in bullet form.}
+		\resumeItem{Begin each line with an action verb and include details that will help the reader understand your accomplishments,
+skills, knowledge, abilities, or achievements.}
+		\resumeItem{Quantify where possible.}
+		\resumeItem{Do not use personal pronouns; each line should be a phrase rather than a full sentence.}
+	\end{itemize}\vspace{-5pt}
+}
+
+\Experience{Exp2}
+{Month Year}
+{Month Year}
+{Organization}
+{Position Title}
+{City, State (or Remote)}
+{
+	\begin{itemize}
+		\resumeItem{Beginning with your most recent position, describe your experience, skills, and resulting outcomes in bullet form.}
+		\resumeItem{Begin each line with an action verb and include details that will help the reader understand your accomplishments,
+skills, knowledge, abilities, or achievements.}
+		\resumeItem{Quantify where possible.}
+		\resumeItem{Do not use personal pronouns; each line should be a phrase rather than a full sentence.}
+	\end{itemize}\vspace{-5pt}
+}
+
+\Experience{Lead1}
+{Month Year}
+{Month Year}
+{Organization}
+{Role}
+{City, State}
+{
+	\begin{itemize}
+		\resumeItem{This section can be formatted similarly to the Experience section, or you can omit descriptions for activities.}
+		\resumeItem{If this section is more relevant to the opportunity you are applying for, consider moving this above your Experience section.}
+	\end{itemize}\vspace{-5pt}
+}
+
+\Project{Github1}
+{2025}
+{Harvard Resume Template}
+{developer}
+{\begin{itemize}
+		\resumeItem{\lrand[27]}
+		\resumeItem{\lrand[28]}
+	\end{itemize}\vspace{-23pt}}
