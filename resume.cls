@@ -49,6 +49,9 @@
 % \usepackage{CormorantGaramond}
 % \usepackage{charter}
 
+% Times New Roman
+% \usepackage{mathptmx}
+
 %-------------------------------------
 % Page Setup
 %-------------------------------------
@@ -102,8 +105,16 @@
   \vspace{-2pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & {\small #2} \\
-      {\small#3} & {\small #4} \\
-      {#5}
+      {\small#3} & {\small #4} \\ 
+      {\small#5}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\EducationNoHighlightsStyle}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\small #2} \\
+      {\small#3} & {\small #4}
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -185,12 +196,12 @@
 }
 
 \newcommand{\renderEducationNoHighlights}[1]{
-    \EducationStyle
+    \EducationNoHighlightsStyle
       {\csname #1@University\endcsname}
       {\csname #1@Location\endcsname}
       {\csname #1@Degree\endcsname, \csname #1@Concentration\endcsname. \csname #1@GPA\endcsname}
       {\csname #1@Start\endcsname~--~\csname #1@End\endcsname}
-      {\csname #1@Highlights\endcsname}
+      {}
 }
 
 \newcommand{\renderExperience}[1]{

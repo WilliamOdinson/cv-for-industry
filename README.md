@@ -2,7 +2,21 @@ This repository provides a LaTeX résumé template inspired by the [Harvard Bull
 
 ## Overview
 
-![Preview of the template](https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/preview.png)
+<table border="1" cellspacing="0" cellpadding="10" style="width: 100%; text-align: center;">
+  <tr>
+    <td style="width: 50%;">
+      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Harvard.png" alt="Preview of the template" style="max-width: 100%;">
+    </td>
+    <td style="width: 50%;">
+      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Default.png" alt="Default preview" style="max-width: 100%;">
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Harvard</strong></td>
+    <td>Default</td>
+  </tr>
+</table>
+
 
 - **main.tex**  
   The primary file where sections such as *Education*, *Experience*, *Leadership & Activities*, and *Notable Github Projects* are orchestrated.
