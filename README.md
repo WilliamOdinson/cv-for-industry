@@ -12,11 +12,10 @@ This repository provides a LaTeX résumé template inspired by the [Harvard Bull
     </td>
   </tr>
   <tr>
-    <td><strong>Harvard</strong></td>
-    <td>Default</td>
+    <td style="text-align: center;"><strong>Harvard</strong></td>
+    <td style="text-align: center;">Default</td>
   </tr>
 </table>
-
 
 - **main.tex**  
   The primary file where sections such as *Education*, *Experience*, *Leadership & Activities*, and *Notable Github Projects* are orchestrated.
