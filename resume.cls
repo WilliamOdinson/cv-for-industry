@@ -19,12 +19,13 @@
 %-------------------------------------
 % Required Packages
 %-------------------------------------
-\RequirePackage{blindtext}
 \RequirePackage[english]{babel}
+\RequirePackage{blindtext}
 \RequirePackage[empty]{fullpage}
 \RequirePackage{enumitem}
 \RequirePackage{fancyhdr}
 \RequirePackage{fontawesome5}
+\RequirePackage[T1]{fontenc}
 \RequirePackage{forarray}
 \RequirePackage{hyperref}
 \RequirePackage{latexsym}
@@ -34,7 +35,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{titlesec}
 \RequirePackage{verbatim}
-\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage{xcolor}
 
 %-------------------------------------
 % Font Options
@@ -50,8 +51,16 @@
 % \usepackage{charter}
 
 % Times New Roman
-% \usepackage{mathptmx}
+\usepackage{mathptmx}
 
+%-------------------------------------
+% Hyperlink Global Setup
+%-------------------------------------
+
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
 %-------------------------------------
 % Page Setup
 %-------------------------------------
@@ -74,11 +83,11 @@
 
 \if@defaultstyle
   \titleformat{\section}{
-    \vspace{-4pt}\scshape\raggedright\large\bfseries
+    \vspace{-4pt}\raggedright\large\bfseries
   }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 \else
   \titleformat{\section}{
-    \vspace{-4pt}\scshape\centering\large\bfseries
+    \vspace{-4pt}\centering\large\bfseries
   }{}{0em}{}
 \fi
 
@@ -122,7 +131,7 @@
   \vspace{-2pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & {\small #2} \\
-      \textbf{\small#3} & {\small #4} \\
+      {\small#3} & {\small #4} \\
     \end{tabular*}\vspace{-10pt}
 }
 
@@ -144,19 +153,21 @@
 %-------------------------------------
 \newcommand{\titlesection}{
 \begingroup
-\hypersetup{
-    colorlinks=false,
-    pdfborder={0 0 0},
-}
 \begin{center}
-    {\Huge \scshape \firstname \ \lastname} \\ 
-    % Havard Titlerule: 
-    % \color{black}\titlerule
+    {\Huge \scshape \firstname\ \lastname}\\
+    \ifdefined\position
+        {\small\textit{Applying For: \position}}\\
+    \fi
     \vspace{6pt}
-    \small \raisebox{-0.1\height}\faPhone\ \jasphone ~ 
-    \href{mailto:\email}{\raisebox{-0.2\height}\faEnvelope\ \email}
-    \href{https://\linkedin}{\raisebox{-0.2\height}\faLinkedin\ \linkedin} ~
-    \href{https://\github}{\raisebox{-0.2\height}\faGithub\ \github}
+    \small
+    \raisebox{-0.1\height}\faPhone\ \phone ~
+    \href{mailto:\email}{\raisebox{-0.1\height}\faEnvelope\ \email}
+    \href{https://\linkedin}{\raisebox{-0.1\height}\faLinkedin\ \linkedin} ~
+    \href{https://\github}{\raisebox{-0\height}\faGithub\ \github}
+    \\
+    \ifdefined\address
+        \href{https://www.google.com/maps/search/?api=1&query=\address}{\raisebox{-0\height}\faMapMarker\ \address}
+    \fi
     \vspace{-8pt}
 \end{center}
 \endgroup
@@ -215,11 +226,16 @@
   \ProjectStyle
     {\textbf{\csname #1@ProjectName\endcsname} $|$ \csname #1@Position\endcsname}
     {\csname #1@Date\endcsname}
-    \csname #1@Highlights\endcsname
 }
 
 \newcommand{\describe}[2]{
   \csname #1@#2\endcsname
+}
+
+\newcommand{\link}[2]{\href{#1}{\textcolor{blue}{[#2]}}}
+
+\newcommand{\updated}[1]{
+  \fancyfoot[R]{\makebox[0pt][l]{\textcolor{gray}{\textit{\scriptsize Last updated: #1}}}}
 }
 
 %-------------------------------------
