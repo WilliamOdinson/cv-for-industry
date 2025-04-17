@@ -5,10 +5,14 @@ This repository provides a LaTeX résumé template inspired by the [Harvard Bull
 <table border="1" cellspacing="0" cellpadding="10" style="width: 100%; text-align: center;">
   <tr>
     <td style="width: 50%;">
-      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Harvard.png" alt="Preview of the template" style="max-width: 100%;">
+      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Harvard.png" 
+           alt="Preview of the template" 
+           style="width: 295px; height: 386px; object-fit: contain;">
     </td>
     <td style="width: 50%;">
-      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Default.png" alt="Default preview" style="max-width: 100%;">
+      <img src="https://raw.githubusercontent.com/WilliamOdinson/cv-for-industry/main/assets/Default.png" 
+           alt="Default preview" 
+           style="width: 295px; height: 386px; object-fit: contain;">
     </td>
   </tr>
   <tr>
