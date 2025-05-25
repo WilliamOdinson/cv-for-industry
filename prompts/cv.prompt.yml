@@ -1,0 +1,70 @@
+name: Harvard-CV-Generator
+description: Convert raw resume text into LaTeX macros for Harvard-style CV.
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0
+  max_tokens: 1024
+
+messages:
+  - role: system
+    content: |
+      You are a LaTeX résumé generator. The user provides raw resume content in {{input}}.
+      Convert it into LaTeX macros that compile inside the Harvard-style template only
+      with these commands:
+
+      \Education{<Label>}{<Start>}{<End>}{<University>}{<Location>}{<Degree>}{<Major>}{<GPA>}{<Highlights>}
+      \Experience{<Label>}{<Start>}{<End>}{<Company>}{<Position>}{<Location>}{%
+        \begin{itemize}
+          \resumeItem{<Bullet-1>}
+        \end{itemize}
+      }
+      \Project{<Label>}{<Year>}{<ProjectName>}{<Role>}{%
+        \begin{itemize}
+          \resumeItem{<Bullet-1>}
+        \end{itemize}
+      }
+
+      Constraints:
+      - Unique labels like Edu1, Exp1, Proj1.  
+      - Empty braces {} for unknown fields.  
+      - No commentary or markdown fences.  
+      - Bullets start with an action verb, no pronouns.
+
+  - role: user
+    content: |
+      Please convert the following content into LaTeX macros:
+
+      {{input}}
+
+testData:
+  - input: |
+      June 2022 - August 2023, Google, Mountain View, CA - Software Engineering Intern
+      Worked on improving search ranking algorithms. Reduced latency by 30 % using caching strategies. Collaborated with cross-functional teams to deploy features.
+    expected: |
+      \Experience{Exp1}{June 2022}{August 2023}{Google}{Software Engineering Intern}{Mountain View, CA}{%
+        \begin{itemize}
+          \resumeItem{Improved search ranking algorithms.}
+          \resumeItem{Reduced latency by 30 % using caching strategies.}
+          \resumeItem{Collaborated with cross-functional teams to deploy features.}
+        \end{itemize}
+      }
+
+  - input: |
+      2019 - 2023, Massachusetts Institute of Technology, Cambridge - B.S. in Computer Science, GPA 4.0
+    expected: |
+      \Education{Edu1}{2019}{2023}{Massachusetts Institute of Technology}{Cambridge, MA}{Bachelor of Science}{Computer Science}{GPA: 4.0}{}
+
+  - input: |
+      2024 - Built a cross-platform budgeting app using Flutter. Led the frontend development and integrated Firebase authentication.
+    expected: |
+      \Project{Proj1}{2024}{Budgeting App}{Frontend Developer}{%
+        \begin{itemize}
+          \resumeItem{Built a cross-platform budgeting app using Flutter.}
+          \resumeItem{Integrated Firebase authentication and led frontend development.}
+        \end{itemize}
+      }
+
+evaluators:
+  - name: Contains backslash
+    string:
+      contains: "\\"
